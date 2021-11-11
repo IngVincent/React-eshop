@@ -1,24 +1,28 @@
 import React from "react";
 import "./CheckoutProduct.css"
 
-function CheckoutProduct()
+function CheckoutProduct({id, image, title, price, rating})
 {
     return(
             <>
                 <div className="checkoutProduct">
-                 <img src="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
+                 <img src={image}
                  alt="" className="checkoutProduct_image" />
                 </div>
                 <div className="checkoutProduct_info">
                     <p className="checkoutProduct_title">
-                    Bennet Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag. Water Repellent Favric for Men and Women (Blue)
+                        {title}
                     </p>
                     <p className="checkoutProduct_price">
                      <small>$</small>
-                     <strong>20</strong>
+                     <strong>{price}</strong>
                     </p>
                 <div className="checkoutProduct_rating">
-                    ⭐⭐⭐
+                {Array(rating)
+                        .fill()
+                        .map((_, i) =>(
+                            <p>⭐</p>
+                        ))}
                 </div>
                 <button>Remove Item</button>
             </div>
